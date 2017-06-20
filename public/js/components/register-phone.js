@@ -22,13 +22,22 @@ const RegOne = (data,update) => {
     form.append(input);
     form.append(box);
 
+    box.on('click', _ => {
+        if ( $('#terms').is( ":checked" ) ) {
+            $('#terms').removeProp('checked');
+        } else { $('#terms').prop('checked');}
+    });
+
     const button = $('<button type="submit" class="btn"disabled>Continuar</button>');
 
     button.on('click',(e) => {
         e.preventDefault();
-
-
-    })
+        if(input.val().lenght()!== 0 && box.attr('checked')) {
+            button.removeAttr('disabled');
+            state.page = 2;
+            update();
+        }
+    });
 
 
 
