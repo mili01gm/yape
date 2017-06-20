@@ -1,0 +1,71 @@
+* {
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    font-family: sans-serif;
+}
+
+/*
+===================
+COMMON
+===================
+*/
+
+.container {
+    margin: 2rem auto;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.btn {
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: #fbd43b;
+    color: #fff;
+    font-weight: 700;
+    border: 0;
+    text-transform: uppercase;
+    padding: .8rem;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+    transform: scale(1.1);
+}
+
+/*
+===================
+PAGE 1 / HOME.js
+===================
+*/
+
+.home figure {
+    width: 85%;
+    height: 55vh;
+    margin: 2rem auto 2rem auto;
+}
+
+figure img {
+    width: 75%;
+    margin-bottom: 1.5rem;
+}
+
+figure h2 {
+    margin-bottom: .9rem;
+}
+
+figure p {
+    color: #8f8f8f;
+    line-height: 1.8rem;
+    font-size: 1.1rem;
+}
+
+
+.btn-register {
+    width: 85%;
+}
+
+
+
+
