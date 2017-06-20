@@ -8,7 +8,7 @@ const render = (root) => {
         wrapper.append(Home(_ => render(root)));
     }
     if(state.page == 1) {
-        wrapper.append(RegOne );
+        wrapper.append(RegOne);
     }
 
     root.append(wrapper);
