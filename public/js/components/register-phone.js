@@ -22,7 +22,7 @@ const RegOne = (data,update) => {
     form.append(input);
     form.append(box);
 
-    box.on('change', _ => {
+    box.on('click', _ => {
         if ( $('#terms').is( ":checked" ) ) {
             $('#terms').removeProp('checked');
         } else { $('#terms').prop('checked');}
