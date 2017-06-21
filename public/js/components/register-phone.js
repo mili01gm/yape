@@ -15,13 +15,11 @@ const RegOne = (data, update) => {
 
     const form = $('<form id="register-number"></form>');
     const input = $('<input type="tel" name="reg-phone" id="tel" class="form-input" maxlength="9" required/>');
-    const areaCode = $('<i src="img/icons/phoneandnumber.png">');
     const box = $('<input type="checkbox" name="terms" id="terms" class="checkbox required"> Acepto los <a href="#">Términos y Condiciones</a>');
-    input.append(areaCode);
+    const button = $('<button type="submit" class="btn" disabled>Continuar</button>');
     form.append(input);
     form.append(box);
-
-    const button = $('<button type="submit" class="btn" disabled>Continuar</button>');
+    form.append(button);
 
     input.NumberOnly();
 
@@ -40,7 +38,20 @@ const RegOne = (data, update) => {
         }
     });
 
-    form.append(button);
+    button.on('click', (e) => {
+        e.preventDefault();
+        const vb = box.is(':checked');
+        const valInput = input.val();
+
+        $.post('./api/registerNumber', {
+            "phone": valInput,
+            "terms": vb
+        }, JSON);
+
+        status.page = 2;
+        update();
+    });
+
     section.append(step);
     section.append(form);
     return section;
