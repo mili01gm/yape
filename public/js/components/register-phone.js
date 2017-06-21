@@ -1,6 +1,6 @@
 'use strict';
 
-const RegOne = (data, update) => {
+const RegOne = (update) => {
     const section = $('<section class="container register"></section>');
 
     const step = $('<div class="step"></div>');
@@ -21,15 +21,12 @@ const RegOne = (data, update) => {
     form.append(input);
     form.append(box);
 
-    const button = $('<button type="submit" class="btn" disabled>Continuar</button>');
+    const button = $('<button type="button" class="btn">Continuar</button>');
 
-    box.on('change', _ => {
-        if ($(this).is('checked')) {
-            const num = input.val();
-            if (num.length > 0) {
-                button.removeProp('disabled');
-            } else { alert("no no"); }
-        }
+    button.on('click', (e) => {
+        e.preventDefault();
+        state.page = 2;
+        update();
     });
 
     form.append(button);

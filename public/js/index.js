@@ -8,6 +8,8 @@ const render = (root) => {
         wrapper.append(Home(_ => render(root)));
     } else if (state.page == 1) {
         wrapper.append(RegOne(_ => render(root)));
+    } else if (state.page == 2) {
+        wrapper.append(Code(_ => render(root)));
     }
 
     root.append(wrapper);
