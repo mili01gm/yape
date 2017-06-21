@@ -47,7 +47,7 @@ const RegOne = (update) => {
             "phone": valInput,
             "terms": vb
         }, JSON).done(function(data) {
-            console.log(data, code);
+            console.log(data + code)
         });
 
         state.page = 2;
