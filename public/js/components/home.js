@@ -9,7 +9,7 @@ const Home = (update) => {
     const img1 = $('<img src="img/icons/icon-people.png" />');
     const figCap1 = $('<figcaption></figcaption>');
     const fig1H3 = $('<h3>Paga a tus amigos</h3>');
-    const fig1P = $('<p>Paga a quien quieras desde donde quiera, sin usar efectivo</p>');
+    const fig1P = $('<p class="text-grey">Paga a quien quieras desde donde <br>quiera, sin usar efectivo</p>');
     figCap1.append(fig1H3);
     figCap1.append(fig1P);
     figOne.append(img1);
@@ -19,7 +19,7 @@ const Home = (update) => {
     const img2 = $('<img src="img/icons/happy-person.png" />');
     const figCap2 = $('<figcaption></figcaption>');
     const fig2H3 = $('<h3>Sin número de cuenta</h3>');
-    const fig2P = $('<p>Elige a quién pagar desde tu lista de contactos</p>');
+    const fig2P = $('<p class="text-grey">Elige a quién pagar desde tu lista <br>de contactos</p>');
     figCap2.append(fig2H3);
     figCap2.append(fig2P);
     figTwo.append(img2);
@@ -29,7 +29,7 @@ const Home = (update) => {
     const img3 = $('<img src="img/icons/group-people.png" />');
     const figCap3 = $('<figcaption></figcaption>');
     const fig3H3 = $('<h3>Gratis y Seguro</h3>');
-    const fig3P = $('<p>La transferencia es inmediata y gratuita de una cuenta a otra</p>');
+    const fig3P = $('<p class="text-grey">La transferencia es inmediata y <br>gratuita de una cuenta a otra</p>');
     figCap3.append(fig3H3);
     figCap3.append(fig3P);
     figThree.append(img3);
