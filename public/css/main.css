@@ -52,24 +52,28 @@ PAGE 1 / HOME.js
 ===================
 */
 
-.home figure {
-    width: 85%;
-    margin: 2rem auto 2rem auto;
+
+/*
+CAROUSEL
+*/
+
+.owl-stage-outer {
+    margin-bottom: 20px;
 }
 
-figure img {
-    width: 75%;
-    margin-bottom: 1.5rem;
+.owl-carousel .owl-item img {
+    width: 60% !important;
+    margin: 0 auto;
 }
 
-figure h2 {
-    margin-bottom: .9rem;
+.owl-nav {
+    display: none;
 }
 
-figure p {
-    line-height: 1.8rem;
-    font-size: 1.1rem;
-}
+
+/*
+BUTTON
+*/
 
 .btn-register {
     width: 85%;
