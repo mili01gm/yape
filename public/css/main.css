@@ -123,3 +123,20 @@ PAGE 2 / REGISTER-PHONE.js
 .register #terms {
     font-size: .7rem;
 }
+
+
+/*
+===================
+PAGE 3 / CODE.js
+===================
+*/
+
+#send-code input {
+    background: url('../img/icons/lock.png') no-repeat scroll 4px 4px;
+    padding-left: 30px;
+    padding-bottom: 15px;
+    background-size: contain;
+    border: 0;
+    border-bottom: 1px solid #8f8f8f;
+    height: 2.3rem;
+}
