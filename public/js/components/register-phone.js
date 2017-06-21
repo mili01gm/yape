@@ -13,33 +13,24 @@ const RegOne = (data,update) => {
     step.append(icon);
     step.append(divText);
 
-    const form = $('<form></form>');
-    const input = $('<input type="tel" id="tel" class="tel"/>');
+    const form = $('<form id="register-number"></form>');
+    const input = $('<input type="tel" name="reg-phone" id="tel" class="form-input"/>');
     const areaCode = $('<i src="img/icons/phoneandnumber.png">');
-    const box = $('<input type="checkbox" id="terms" class="checkbox" required> Acepto los <a href="#">Términos y' +
-        ' Condiciones</a>');
+    const box = $('<input type="checkbox" name="terms" id="terms" class="checkbox"> Acepto los <a href="#">Términos y Condiciones</a>');
     input.append(areaCode);
     form.append(input);
     form.append(box);
 
-    box.on('click', _ => {
-        if ( $('#terms').is( ":checked" ) ) {
-            $('#terms').removeProp('checked');
-        } else { $('#terms').prop('checked');}
-    });
+    const button = $('<button type="submit" class="btn" disabled>Continuar</button>');
 
-    const button = $('<button type="submit" class="btn"disabled>Continuar</button>');
-
-    button.on('click',(e) => {
-        e.preventDefault();
-        if(input.val().lenght()!== 0 && box.attr('checked')) {
-            button.removeAttr('disabled');
-            state.page = 2;
-            update();
+    box.on('change', _ => {
+        if($(this).is('checked')){
+            const num = input.val();
+            if(num.length > 0) {
+                button.removeProp('disabled');
+            } else {alert("no no");}
         }
-    });
-
-
+        });
 
     form.append(button);
     section.append(step);
