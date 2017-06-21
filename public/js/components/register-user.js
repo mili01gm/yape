@@ -1,6 +1,6 @@
 'use strict';
 
-const RegUser = (data, update) => {
+const RegUser = (update) => {
     const section = $('<section class="container register-user"></section>');
 
     const step = $('<div class="step"></div>');
@@ -17,15 +17,7 @@ const RegUser = (data, update) => {
     const inputName = $('<input type="text" name="user-name" id="uName" class="form-input" placeholder="Nombre" required/>');
     const inputMail = $('<input type="email" name="user-email" id="uEmail" class="form-input" placeholder="Email" required/>');
     const inputPass = $('<input type="password" name="user-pass" id="uPass" class="form-input" placeholder="Contraseña" required/>');
-    const uButton = $('<button type="submit" class="btn">Crear cuenta</button>');
-
-    inputName.LetterOnly();
-
-    button.on('click', (e) => {
-        e.preventDefault();
-        state.page = 5;
-        update();
-    });
+    const uButton = $('<button type="button" class="btn" disabled>Crear cuenta</button>');
 
     form.append(inputName);
     form.append(inputMail);
@@ -34,23 +26,24 @@ const RegUser = (data, update) => {
     section.append(step);
     section.append(form);
 
+    inputName.LetterOnly();
+
+    const regex = "[a-z0-9._]+@[a-z]+[.][a-z]{2,3}";
+    const iName = inputName.val();
+    const iPass = inputPass.val();
+
+    if (iName.length > 0 && regex.test(inputMail) == true && iPass.length >= 4) {
+        uButton.removeAttr('disabled');
+    }
+
+    uButton.on('click', (e) => {
+        e.preventDefault();
+        state.page = 4;
+        update();
+    });
+
     return section;
 }
-
-jQuery.fn.NumberOnly = function() {
-    return this.each(function() {
-        $(this).keydown(function(e) {
-            const key = e.charCode || e.keyCode || 0;
-            return (
-                key == 8 || key == 9 ||
-                key == 13 || key == 110 ||
-                key == 190 ||
-                (key >= 35 && key <= 40) ||
-                (key >= 48 && key <= 57) ||
-                (key >= 96 && key <= 105));
-        });
-    });
-};
 
 jQuery.fn.LetterOnly = function() {
     return this.each(function() {
