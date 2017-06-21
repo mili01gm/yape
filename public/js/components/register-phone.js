@@ -14,27 +14,62 @@ const RegOne = (data, update) => {
     step.append(divText);
 
     const form = $('<form id="register-number"></form>');
-    const input = $('<input type="tel" name="reg-phone" id="tel" class="form-input"/>');
-    const areaCode = $('<i src="img/icons/phoneandnumber.png">');
-    const box = $('<input type="checkbox" name="terms" id="terms" class="checkbox"> Acepto los <a href="#">Términos y Condiciones</a>');
-    input.append(areaCode);
+    const input = $('<input type="tel" name="reg-phone" id="tel" class="form-input" maxlength="9" required/>');
+    const box = $('<input type="checkbox" name="terms" id="terms" class="checkbox required"> Acepto los <a href="#">Términos y Condiciones</a>');
+    const button = $('<button type="submit" class="btn" disabled>Continuar</button>');
     form.append(input);
     form.append(box);
+    form.append(button);
 
-    const button = $('<button type="submit" class="btn" disabled>Continuar</button>');
+    input.NumberOnly();
 
-    box.on('change', _ => {
-        if ($(this).is('checked')) {
-            const num = input.val();
-            if (num.length > 0) {
-                button.removeProp('disabled');
-            } else { alert("no no"); }
+    input.on('blur', () => {
+        const vb = box.is(':checked');
+        if (vb == true) {
+            button.removeAttr('disabled');
         }
     });
 
-    form.append(button);
+    box.on('change', () => {
+        const vb = box.is(':checked');
+        const valInput = input.val();
+        if (vb == true && valInput.length === 9) {
+            button.removeAttr('disabled');
+        }
+    });
+
+    button.on('click', (e) => {
+        e.preventDefault();
+        const vb = box.is(':checked');
+        const valInput = input.val();
+
+        $.post('./api/registerNumber', {
+            "phone": valInput,
+            "terms": vb
+        }, JSON);
+
+        status.page = 2;
+        update();
+    });
+
     section.append(step);
     section.append(form);
 
     return section;
 }
+
+//En consola se indica error cuando se escribe con ES6. Verificar.
+jQuery.fn.NumberOnly = function() {
+    return this.each(function() {
+        $(this).keydown(function(e) {
+            const key = e.charCode || e.keyCode || 0;
+            return (
+                key == 8 || key == 9 ||
+                key == 13 || key == 110 ||
+                key == 190 ||
+                (key >= 35 && key <= 40) ||
+                (key >= 48 && key <= 57) ||
+                (key >= 96 && key <= 105));
+        });
+    });
+};
