@@ -1,7 +1,7 @@
 'use strict';
 
 const Code = (data, update) => {
-    const section = $('<section class="container register"></section>');
+    const section = $('<section class="container code"></section>');
 
     const step = $('<div class="step"></div>');
     const icon = $('<img src="img/icons/message.png"/>');
@@ -13,14 +13,11 @@ const Code = (data, update) => {
     step.append(icon);
     step.append(divText);
 
-    const form = $('<form id="send-code"></form>');
+    const form = $('<form id="register-number"></form>');
     const input = $('<input type="tel" name="reg-phone" id="tel" class="form-input"/>');
-    // const areaCode = $('<i src="img/icons/phoneandnumber.png">');
-    const timer = $('');
-
-    // input.append(areaCode);
+    const timer = $('<p id="timer-text">reset code <span id="timer-clock"></span></p>');
     form.append(input);
-    // form append(timer);
+    form.append(input);
     section.append(step);
     section.append(form);
 
