@@ -102,18 +102,20 @@ module.exports = (router,db) => {
 
         if (userId && cardNumber && cardYear && cardMonth && cardPassword) {
             db.get(userId,(err,record) => {
+
                 if (err) {
                     if (err.notFound) return res.json({success: false, message: "Usuario no encontrado", data: false});
                     return res.json({success: false, message: "Hubo un error obteniendo el usuario",data:false});
                 }
-                const user = Object.assign({},record,{cardNumber: cardNumber, cardMonth: cardMonth, cardYear: cardYear, cardPassword: cardPassword});
-                db.put(userId,user,(err) => {
+                const user = Object.assign({}, record, { cardNumber: cardNumber, cardMonth: cardMonth, cardYear: cardYear, cardPassword: cardPassword });
+                db.put(userId, user, (err) => {
+
                     if (err) {
                         return res.json({success: false, message: "Hubo un problema al agregar la tarjeta", data: null});
                     }
                 });
                 console.log(user);
-                return res.json({success: true, message: "Tarjeta añadida correctamente", data: user});
+                return res.json({ success: true, message: "Tarjeta añadida correctamente", data: user });
             });
         } else {
             res.json({success:false, message: "Parámetros incorrectos", data: null});

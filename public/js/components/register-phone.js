@@ -1,6 +1,6 @@
 'use strict';
 
-const RegOne = (data,update) => {
+const RegOne = (data, update) => {
     const section = $('<section class="container register"></section>');
 
     const step = $('<div class="step"></div>');
@@ -29,7 +29,6 @@ const RegOne = (data,update) => {
             if(num.length > 0) {
                 button.removeProp('disabled');
             } else {alert("no no");}
-        }
         });
 
     form.append(button);
