@@ -1,6 +1,6 @@
 'use strict';
 
-const RegOne = (data, update) => {
+const RegOne = (update) => {
     const section = $('<section class="container register"></section>');
 
     const step = $('<div class="step"></div>');
@@ -46,9 +46,11 @@ const RegOne = (data, update) => {
         $.post('./api/registerNumber', {
             "phone": valInput,
             "terms": vb
-        }, JSON);
+        }, JSON).done(function(data) {
+            console.log(data + code)
+        });
 
-        status.page = 2;
+        state.page = 2;
         update();
     });
 

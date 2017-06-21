@@ -47,6 +47,27 @@ COMMON
 
 
 /*
+STEP on every page
+*/
+
+.step img {
+    width: 40%;
+    margin-bottom: 1.5rem;
+}
+
+.step h3 {
+    line-height: 2rem;
+    margin-bottom: 1.1rem;
+}
+
+.step p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+
+/*
 ===================
 PAGE 1 / HOME.js
 ===================
@@ -93,22 +114,6 @@ BUTTON
 PAGE 2 / REGISTER-PHONE.js
 ===================
 */
-
-.step img {
-    width: 40%;
-    margin-bottom: 1.5rem;
-}
-
-.step h3 {
-    line-height: 2rem;
-    margin-bottom: 1.1rem;
-}
-
-.step p {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin-bottom: 1.5rem;
-}
 
 .register form {
     text-align: center;
