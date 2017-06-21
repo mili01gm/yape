@@ -5,6 +5,7 @@
     font-family: sans-serif;
 }
 
+
 /*
 ===================
 COMMON
@@ -39,9 +40,11 @@ COMMON
 .text-white {
     color: #fff;
 }
+
 .text-grey {
     color: #8f8f8f;
 }
+
 
 /*
 ===================
@@ -51,7 +54,6 @@ PAGE 1 / HOME.js
 
 .home figure {
     width: 85%;
-    height: 55vh;
     margin: 2rem auto 2rem auto;
 }
 
@@ -69,10 +71,10 @@ figure p {
     font-size: 1.1rem;
 }
 
-
 .btn-register {
     width: 85%;
 }
+
 
 /*
 ===================
@@ -99,6 +101,7 @@ PAGE 2 / REGISTER-PHONE.js
 .register form {
     text-align: center;
 }
+
 .register input,
 .register button {
     display: block;

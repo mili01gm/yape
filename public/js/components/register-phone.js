@@ -24,15 +24,17 @@ const RegOne = (data, update) => {
     const button = $('<button type="submit" class="btn" disabled>Continuar</button>');
 
     box.on('change', _ => {
-        if($(this).is('checked')){
+        if ($(this).is('checked')) {
             const num = input.val();
-            if(num.length > 0) {
+            if (num.length > 0) {
                 button.removeProp('disabled');
-            } else {alert("no no");}
-        });
+            } else { alert("no no"); }
+        }
+    });
 
     form.append(button);
     section.append(step);
     section.append(form);
+
     return section;
 }

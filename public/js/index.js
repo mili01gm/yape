@@ -4,10 +4,9 @@ const render = (root) => {
     root.empty();
 
     const wrapper = $('<div class="wrapper"></div>');
-    if(state.page == null) {
+    if (state.page == null) {
         wrapper.append(Home(_ => render(root)));
-    }
-    if(state.page == 1) {
+    } else if (state.page == 1) {
         wrapper.append(RegOne(_ => render(root)));
     }
 
