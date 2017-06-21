@@ -14,7 +14,7 @@ const Code = (data, update) => {
     step.append(divText);
 
     const form = $('<form id="send-code"></form>');
-    const input = $('<input type="tel" name="reg-phone" id="tel" class="form-input"/><i src="img/icons/lock.png">');
+    const input = $('<input type="tel" name="reg-phone" id="tel" class="form-input" maxlength="6"/>');
     // const timer = $('');
 
     form.append(input);
@@ -24,11 +24,12 @@ const Code = (data, update) => {
 
     input.NumberOnly();
 
+    const codex = input.val();
+
+
 
 
     return section;
-
-
 }
 
 //En consola otra vez indica error cuando se escribe con ES6. Verificar...
