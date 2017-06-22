@@ -38,10 +38,6 @@ const Code = (update) => {
         $('#timer-clock').text(count);
     }, 1000);
 
-    const getNewCode = setInterval(_ => {
-        resend();
-    }, 21000);
-
     //POST para nuevo código
     const resend = () => {
         $.post('./api/resendCode', {
@@ -54,6 +50,11 @@ const Code = (update) => {
         });
     }
 
+    const getNewCode = setInterval(_ => {
+        resend();
+    }, 21000);
+
+    //Validación
     input.on('keyup', () => {
         if (input.val() == state.code) {
             clearInterval(getNewCode);

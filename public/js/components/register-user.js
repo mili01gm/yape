@@ -17,7 +17,7 @@ const RegUser = (update) => {
     const inputName = $('<input type="text" name="user-name" id="uName" class="form-input" placeholder="Nombre" required/>');
     const inputMail = $('<input type="email" name="user-email" id="uEmail" class="form-input" placeholder="Email" required/>');
     const inputPass = $('<input type="password" name="user-pass" id="uPass" class="form-input" placeholder="Contraseña" required/>');
-    const uButton = $('<button type="button" class="btn" disabled>Crear cuenta</button>');
+    const uButton = $('<button type="button" class="btn">Crear cuenta</button>');
 
     form.append(inputName);
     form.append(inputMail);
@@ -28,13 +28,14 @@ const RegUser = (update) => {
 
     inputName.LetterOnly();
 
-    const regex = "[a-z0-9._]+@[a-z]+[.][a-z]{2,3}";
+    // const regex = [a - z0 - 9. _] + @[a - z] + [.][a - z] { 2, 3 };
+    // const re = /\S+@\S+\.\S+/;
 
-    if (inputName.val() != "" && regex.test(inputMail) == true && inputPass.val().length >= 4) {
-        uButton.removeAttr('disabled');
-    } else {
-        uButton.attr('disabled');
-    }
+    // if (inputName.val() != "" && regex.test(inputMail) == true && inputPass.val().length >= 4) {
+    //     uButton.removeAttr('disabled');
+    // } else {
+    //     uButton.attr('disabled');
+    // }
 
     uButton.on('click', (e) => {
         e.preventDefault();
@@ -59,6 +60,7 @@ const RegUser = (update) => {
     return section;
 }
 
+//En consola se indica error cuando se escribe con ES6. Verificar.
 jQuery.fn.LetterOnly = function() {
     return this.each(function() {
         $(this).keydown(function(e) {
