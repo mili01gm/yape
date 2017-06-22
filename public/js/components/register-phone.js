@@ -24,9 +24,16 @@ const RegOne = (update) => {
     input.NumberOnly();
 
     input.on('blur', () => {
+        const valInput = input.val();
         const vb = box.is(':checked');
-        if (vb == true) {
+        if (valInput.length === 9 && vb == true) {
+            state.phone = valInput;
+            state.term = vb;
             button.removeAttr('disabled');
+        } else {
+            state.phone = null;
+            state.term = false;
+            button.attr('disabled');
         }
     });
 
@@ -34,24 +41,29 @@ const RegOne = (update) => {
         const vb = box.is(':checked');
         const valInput = input.val();
         if (vb == true && valInput.length === 9) {
+            state.term = vb;
+            state.phone = valInput;
             button.removeAttr('disabled');
+        } else {
+            state.term = false;
+            state.phone = null;
+            button.attr('disabled');
         }
     });
 
     button.on('click', (e) => {
         e.preventDefault();
-        const vb = box.is(':checked');
-        const valInput = input.val();
 
         $.post('./api/registerNumber', {
-            "phone": valInput,
-            "terms": vb
-        }, JSON).done(function(data) {
-            console.log(data + code)
-        });
-
-        state.page = 2;
-        update();
+            "phone": state.phone,
+            "terms": state.term
+        }, (result) => {
+            if (result.succes != false) {
+                state.code = result.data.code;
+                state.page = 2;
+                update();
+            }
+        })
     });
 
     section.append(step);

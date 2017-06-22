@@ -21,11 +21,11 @@ const render = (root) => {
 }
 
 const state = {
-    user: null,
-
-    page: null
+    page: null,
+    phone: null,
+    term: false,
+    code: null
 }
-s
 
 $(_ => {
     const root = $('.root');

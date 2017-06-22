@@ -1,6 +1,6 @@
 'use strict';
 
-const Code = (data, update) => {
+const Code = (update) => {
     const section = $('<section class="container code"></section>');
 
     const step = $('<div class="step"></div>');
@@ -24,8 +24,6 @@ const Code = (data, update) => {
     section.append(form);
 
     input.NumberOnly();
-
-    const codex = input.val();
 
 
     return section;
