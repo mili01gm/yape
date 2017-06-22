@@ -33,7 +33,7 @@ const RegUser = (update) => {
     divInputPass.append(iIconPass);
     divInputPass.append(inputPass);
 
-    const uButton = $('<button type="button" class="btn">Crear cuenta</button>');
+    const uButton = $('<button type="button" class="btn" disabled>Crear cuenta</button>');
 
     form.append(divInputName);
     form.append(divInputMail);
@@ -44,14 +44,44 @@ const RegUser = (update) => {
 
     inputName.LetterOnly();
 
-    // const regex = [a - z0 - 9. _] + @[a - z] + [.][a - z] { 2, 3 };
-    // const re = /\S+@\S+\.\S+/;
+    // $('#uName, #uEmail, #uPass').on('keyup', _ => {
+    //     let regex = /^\S+@\S+\.\S+/;
+    //     if ($('#uName').val() != "" && regex.test($('#uEmail').val()) && $('#uPass').val() != "") {
+    //         uButton.removeAttr('disabled');
+    //     } else {
+    //         uButton.attr('disabled');
+    //     }
+    // });
 
-    // if (inputName.val() != "" && regex.test(inputMail) == true && inputPass.val().length >= 4) {
-    //     uButton.removeAttr('disabled');
-    // } else {
-    //     uButton.attr('disabled');
-    // }
+    inputName.on('keyup', () => {
+        let regex = /^\S+@\S+\.\S+/;
+        if (inputName.val() != "" && inputPass.val() != "" && regex.test(inputMail.val())) {
+            uButton.removeAttr('disabled');
+        } else {
+            uButton.attr('disabled');
+        }
+    });
+
+    inputMail.on('keyup', () => {
+        let regex = /^\S+@\S+\.\S+/;
+        if (regex.test(inputMail.val()) && inputPass.val() != "" && inputName.val() != "") {
+            uButton.removeAttr('disabled');
+        } else {
+            uButton.attr('disabled');
+        }
+    });
+
+    inputPass.on('keyup', () => {
+        let regex = /^\S+@\S+\.\S+/;
+        if (inputPass.val() != "" && regex.test(inputMail.val()) && inputName.val() != "") {
+            uButton.removeAttr('disabled');
+        } else {
+            uButton.attr('disabled');
+        }
+    });
+
+
+
 
     uButton.on('click', (e) => {
         e.preventDefault();
