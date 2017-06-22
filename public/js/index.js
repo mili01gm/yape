@@ -25,7 +25,10 @@ const state = {
     page: null,
     phone: null,
     term: false,
-    code: null
+    code: null,
+    name: null,
+    email: null,
+    password: null
 }
 
 $(_ => {
