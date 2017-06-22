@@ -14,12 +14,12 @@ const Code = (update) => {
     step.append(divText);
 
     const form = $('<form id="send-code"></form>');
-    const iIcon = $('<img src="">');
     const divInput = $('<div class="div-input"></div>');
+    const iIcon = $('<img src="img/icons/lock.png">');
     const input = $('<input type="tel" name="reg-phone" id="tel" class="form-input" placeholder="- - - - - -" maxlength="6"/>');
-    const timer = $('<p id="timer-text">reset code in <span id="timer-clock"></span> seconds</p>');
+    const timer = $('<p id="timer-text" class="text-grey">Reintentar en  <img src="img/icons/clock.png">  <span id="timer-clock"></span></p>');
 
-    divInput.append(inIcon);
+    divInput.append(iIcon);
     divInput.append(input);
 
     form.append(divInput);

@@ -14,17 +14,21 @@ const RegOne = (update) => {
     step.append(divText);
 
     const form = $('<form id="register-number"></form>');
+    const divInput = $('<div class="div-input"></div>');
+    const iIcon = $('<img src="img/icons/phoneandnumber.png">');
     const input = $('<input type="tel" name="reg-phone" id="tel" class="form-input" maxlength="9" required/>');
-    const box = $('<input type="checkbox" name="terms" id="terms" class="checkbox required"> Acepto los <a href="#">Términos y Condiciones</a>');
+    const box = $('<input type="checkbox" name="terms" id="terms" class="checkbox required"> <span>Acepto los <a href="#">Términos y Condiciones</a></span>');
     const button = $('<button type="submit" class="btn" disabled>Continuar</button>');
-    form.append(input);
+    divInput.append(iIcon);
+    divInput.append(input);
+    form.append(divInput);
     form.append(box);
     form.append(button);
 
     //Solo números
     input.NumberOnly();
 
-    input.on('blur', () => {
+    input.on('keyup', () => {
         const valInput = input.val();
         const vb = box.is(':checked');
         if (valInput.length === 9 && vb == true) {

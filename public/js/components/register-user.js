@@ -14,14 +14,30 @@ const RegUser = (update) => {
     step.append(divText);
 
     const form = $('<form id="user-info"></form>');
+
+    const divInputName = $('<div class="div-input"></div>');
+    const iIconName = $('<img src="img/icons/user.png">');
     const inputName = $('<input type="text" name="user-name" id="uName" class="form-input" placeholder="Nombre" required/>');
+    divInputName.append(iIconName);
+    divInputName.append(inputName);
+
+    const divInputMail = $('<div class="div-input"></div>');
+    const iIconMail = $('<img src="img/icons/message-gray.png">');
     const inputMail = $('<input type="email" name="user-email" id="uEmail" class="form-input" placeholder="Email" required/>');
+    divInputMail.append(iIconMail);
+    divInputMail.append(inputMail);
+
+    const divInputPass = $('<div class="div-input"></div>');
+    const iIconPass = $('<img src="img/icons/lock.png">');
     const inputPass = $('<input type="password" name="user-pass" id="uPass" class="form-input" placeholder="Contraseña" required/>');
+    divInputPass.append(iIconPass);
+    divInputPass.append(inputPass);
+
     const uButton = $('<button type="button" class="btn">Crear cuenta</button>');
 
-    form.append(inputName);
-    form.append(inputMail);
-    form.append(inputPass);
+    form.append(divInputName);
+    form.append(divInputMail);
+    form.append(divInputPass);
     form.append(uButton);
     section.append(step);
     section.append(form);
