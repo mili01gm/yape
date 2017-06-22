@@ -60,10 +60,11 @@ const RegOne = (update) => {
         }, (result) => {
             if (result.succes != false) {
                 state.code = result.data.code;
+                console.log(state.code);
                 state.page = 2;
                 update();
             }
-        })
+        });
     });
 
     section.append(step);
