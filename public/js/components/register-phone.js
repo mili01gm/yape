@@ -6,9 +6,9 @@ const RegOne = (update) => {
     const step = $('<div class="step"></div>');
     const icon = $('<img src="img/icons/phone.png"/>');
     const divText = $('<div class="page-text"></div>');
-    const h2 = $('<h3>Para comenzar validemos tu <br>número</h3>');
-    const p = $('<p class="text-grey">Recibirás un SMS con un código de validación</p>');
-    divText.append(h2);
+    const h4 = $('<h4>Para comenzar validemos tu <br>número</h4>');
+    const p = $('<p>Recibirás un SMS con un código de validación</p>');
+    divText.append(h4);
     divText.append(p);
     step.append(icon);
     step.append(divText);
@@ -21,12 +21,20 @@ const RegOne = (update) => {
     form.append(box);
     form.append(button);
 
+    //Solo números
     input.NumberOnly();
 
     input.on('blur', () => {
+        const valInput = input.val();
         const vb = box.is(':checked');
-        if (vb == true) {
+        if (valInput.length === 9 && vb == true) {
+            state.phone = valInput;
+            state.term = vb;
             button.removeAttr('disabled');
+        } else {
+            state.phone = null;
+            state.term = false;
+            button.attr('disabled');
         }
     });
 
@@ -34,24 +42,30 @@ const RegOne = (update) => {
         const vb = box.is(':checked');
         const valInput = input.val();
         if (vb == true && valInput.length === 9) {
+            state.term = vb;
+            state.phone = valInput;
             button.removeAttr('disabled');
+        } else {
+            state.term = false;
+            state.phone = null;
+            button.attr('disabled');
         }
     });
 
     button.on('click', (e) => {
         e.preventDefault();
-        const vb = box.is(':checked');
-        const valInput = input.val();
 
         $.post('./api/registerNumber', {
-            "phone": valInput,
-            "terms": vb
-        }, JSON).done(function(data) {
-            console.log(data + code)
+            "phone": state.phone,
+            "terms": state.term
+        }, (result) => {
+            if (result.succes != false) {
+                state.code = result.data.code;
+                console.log(state.code);
+                state.page = 2;
+                update();
+            }
         });
-
-        state.page = 2;
-        update();
     });
 
     section.append(step);
