@@ -37,6 +37,10 @@ COMMON
     color: #fff;
 }
 
+.text-green {
+    color: #00c3a3;
+}
+
 .text-grey {
     color: #8f8f8f;
 }
@@ -253,3 +257,10 @@ PAGE 5 / YELLOW.js
 .div-yellow img {
     width: 40%;
 }
+
+
+/*
+===================
+PAGE 6 / REGISTER-CARD-NUMBER.js
+===================
+*/

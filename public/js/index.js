@@ -24,6 +24,10 @@ const render = (root) => {
         }, 3000);
     } else if (state.page == 5) {
         wrapper.append(CardNumber(update));
+    } else if (state.page == 6) {
+        wrapper.append(CardPass(update));
+    } else if (state.page == 7) {
+        wrapper.append(Logged());
     }
 
     root.append(wrapper);
@@ -36,7 +40,11 @@ const state = {
     code: null,
     name: null,
     email: null,
-    password: null
+    password: null,
+    cardNumber: null,
+    cardMonth: null,
+    cardYear: null,
+    cardPass: null
 }
 
 $(_ => {
