@@ -6,9 +6,9 @@ const RegUser = (update) => {
     const step = $('<div class="step"></div>');
     const icon = $('<img src="img/icons/phone.png"/>');
     const divText = $('<div class="page-text"></div>');
-    const h2 = $('<h3>Para comenzar validemos tu <br>número</h3>');
-    const p = $('<p class="text-grey">Recibirás un SMS con un código de validación</p>');
-    divText.append(h2);
+    const h4 = $('<h4>Para comenzar validemos tu <br>número</h4>');
+    const p = $('<p>Recibirás un SMS con un código de validación</p>');
+    divText.append(h4);
     divText.append(p);
     step.append(icon);
     step.append(divText);

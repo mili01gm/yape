@@ -47,19 +47,19 @@ STEP on every page
 */
 
 .step img {
-    width: 40%;
-    margin-bottom: 1.5rem;
+    width: 30%;
+    margin-bottom: 0.5rem;
 }
 
-.step h3 {
-    line-height: 2rem;
-    margin-bottom: 1.1rem;
+.step h4 {
+    line-height: 1.5rem;
+    margin-bottom: 0.8rem;
 }
 
 .step p {
-    font-size: 1rem;
-    line-height: 1.5rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    line-height: 1.3rem;
+    margin-bottom: 1.1rem;
 }
 
 
