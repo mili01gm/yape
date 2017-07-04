@@ -19,40 +19,30 @@ const RegOne = (update) => {
     const input = $('<input type="tel" name="reg-phone" id="tel" class="form-input" maxlength="9" required/>');
     const box = $('<input type="checkbox" name="terms" id="terms" class="checkbox required"> <span>Acepto los <a href="#">Términos y Condiciones</a></span>');
     const button = $('<button type="submit" class="btn" disabled>Continuar</button>');
+    const msg = $('<p class="msg"></p>');
     divInput.append(iIcon);
     divInput.append(input);
     form.append(divInput);
     form.append(box);
     form.append(button);
+    form.append(msg);
 
     //Solo números
     input.NumberOnly();
 
-    input.on('keyup', () => {
+    form.on("change keyup", function() {
         const valInput = input.val();
         const vb = box.is(':checked');
-        if (valInput.length === 9 && vb == true) {
+        if (input.val().trim().length == 9 && input.val().charAt(0) == 9 && box.is(':checked')) {
+            msg.text('');
             state.phone = valInput;
             state.term = vb;
-            button.removeAttr('disabled');
+            button.removeAttr("disabled");
         } else {
             state.phone = null;
             state.term = false;
-            button.attr('disabled');
-        }
-    });
-
-    box.on('change', () => {
-        const vb = box.is(':checked');
-        const valInput = input.val();
-        if (vb == true && valInput.length === 9) {
-            state.term = vb;
-            state.phone = valInput;
-            button.removeAttr('disabled');
-        } else {
-            state.term = false;
-            state.phone = null;
-            button.attr('disabled');
+            button.attr("disabled", "disabled");
+            msg.text('El número debe iniciar en 9 y tener 9 dígitos');
         }
     });
 

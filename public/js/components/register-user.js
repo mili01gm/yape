@@ -29,58 +29,60 @@ const RegUser = (update) => {
 
     const divInputPass = $('<div class="div-input"></div>');
     const iIconPass = $('<img src="img/icons/lock.png">');
-    const inputPass = $('<input type="password" name="user-pass" id="uPass" class="form-input" placeholder="Contraseña" required/>');
+    const inputPass = $('<input type="password" name="user-pass" id="uPass" class="form-input" placeholder="Contraseña de 6 dígitos" maxlength="6"required/>');
     divInputPass.append(iIconPass);
     divInputPass.append(inputPass);
 
     const uButton = $('<button type="button" class="btn" disabled>Crear cuenta</button>');
+    const msgMail = $('<p class="msg"></p>');
 
     form.append(divInputName);
     form.append(divInputMail);
     form.append(divInputPass);
     form.append(uButton);
+    form.append(msgMail);
     section.append(step);
     section.append(form);
 
     inputName.LetterOnly();
 
-    // $('#uName, #uEmail, #uPass').on('keyup', _ => {
-    //     let regex = /^\S+@\S+\.\S+/;
-    //     if ($('#uName').val() != "" && regex.test($('#uEmail').val()) && $('#uPass').val() != "") {
-    //         uButton.removeAttr('disabled');
-    //     } else {
-    //         uButton.attr('disabled');
-    //     }
-    // });
-
     inputName.on('keyup', () => {
         let regex = /^\S+@\S+\.\S+/;
         if (inputName.val() != "" && inputPass.val() != "" && regex.test(inputMail.val())) {
-            uButton.removeAttr('disabled');
+            return true;
         } else {
-            uButton.attr('disabled');
+            return false;
         }
     });
 
+    let isIt = false;
     inputMail.on('keyup', () => {
         let regex = /^\S+@\S+\.\S+/;
         if (regex.test(inputMail.val()) && inputPass.val() != "" && inputName.val() != "") {
-            uButton.removeAttr('disabled');
+            isIt = true;
+            msgMail.text('');
         } else {
-            uButton.attr('disabled');
+            msgMail.text('Ingrese un correo válido');
         }
     });
 
+    inputPass.NumberOnly();
     inputPass.on('keyup', () => {
         let regex = /^\S+@\S+\.\S+/;
         if (inputPass.val() != "" && regex.test(inputMail.val()) && inputName.val() != "") {
-            uButton.removeAttr('disabled');
+            return true;
         } else {
-            uButton.attr('disabled');
+            return false;
         }
     });
 
-
+    form.on("change keyup", function() {
+        if (inputName.val().trim().length > 1 && isIt == true && inputPass.val().length == 6) {
+            uButton.removeAttr("disabled");
+        } else {
+            uButton.attr("disabled", "false");
+        }
+    });
 
 
     uButton.on('click', (e) => {

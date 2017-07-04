@@ -79,6 +79,15 @@ form {
     margin: 0 auto;
 }
 
+.msg {
+    color: red;
+    font-style: italic;
+    font-size: 0.85rem;
+    line-height: 1.3rem;
+    margin-bottom: 1.1rem;
+    margin-top: 1.1rem;
+}
+
 
 /*
 INPUT WITH IMAGE
@@ -264,3 +273,50 @@ PAGE 5 / YELLOW.js
 PAGE 6 / REGISTER-CARD-NUMBER.js
 ===================
 */
+
+.card-number .div-input img {
+    width: 8%;
+}
+
+.scan img {
+    width: 6%;
+}
+
+.scan {
+    font-size: 0.85rem;
+    line-height: 1.3rem;
+    margin-bottom: 1.1rem;
+}
+
+.card-number .div-date label {
+    font-size: 0.85rem;
+    line-height: 1.3rem;
+    margin-bottom: 1.1rem;
+}
+
+.div-date input {
+    display: inline-block;
+    width: 20%;
+    border: 0;
+    border-bottom: 1px solid #fbd43b;
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.div-date input:focus {
+    outline: 0;
+    background: none;
+}
+
+
+/*
+===================
+PAGE 6 / CARD-KEY.js
+===================
+*/
+
+.card-pass .div-input img {
+    width: 8%;
+}

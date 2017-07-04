@@ -6,8 +6,9 @@ const Code = (update) => {
     const step = $('<div class="step"></div>');
     const icon = $('<img src="img/icons/message.png"/>');
     const divText = $('<div class="page-text"></div>');
-    const h4 = $('<h4>Ahora ingresa tu código/h4>');
+    const h4 = $('<h4>Ahora ingresa tu código</h4>');
     const p = $('<p>Enviamos un SMS con el código de validación <br>al número <strong>' + state.phone + '</strong></p>');
+    const msg = $('<p class="msg">Su código es ' + state.code + '</p>');
     divText.append(h4);
     divText.append(p);
     step.append(icon);
@@ -26,6 +27,7 @@ const Code = (update) => {
     form.append(timer);
 
     section.append(step);
+    section.append(msg);
     section.append(form);
 
     //Solo números en input y función de validación
@@ -44,6 +46,7 @@ const Code = (update) => {
     }, 1000);
 
     //POST para nuevo código
+    //agregar mensaje para que se visualice el codigo
     const resend = () => {
         $.post('./api/resendCode', {
             "phone": state.phone
