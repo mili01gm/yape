@@ -320,3 +320,14 @@ PAGE 6 / CARD-KEY.js
 .card-pass .div-input img {
     width: 8%;
 }
+
+
+/*
+===================
+PAGE 6 / LOGGEDIN.js
+===================
+*/
+
+.logged img {
+    width: 30%;
+}

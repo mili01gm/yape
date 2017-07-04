@@ -53,6 +53,7 @@ const Code = (update) => {
         }, (result) => {
             if (result.succes != false) {
                 state.code = result.data;
+                msg.text('Su nuevo código es ' + state.code);
                 console.log(state.code);
             }
         });
